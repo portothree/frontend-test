@@ -19,7 +19,7 @@ To build the production ready dist folder:
 ## File structure
 
 ```
-diamond/
+code/
 │
 ├── public/                        # index.html
 │
