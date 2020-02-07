@@ -1,0 +1,18 @@
+.filmcard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 200px;
+	margin: 10px;
+	background-color: #1b2329;
+
+	&__title {
+		display: block;
+		height: 30px;
+	}
+
+	&__cover {
+		width: 150px;
+		height: 206px;
+	}
+}

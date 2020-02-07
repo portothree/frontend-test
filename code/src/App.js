@@ -5,12 +5,9 @@ import "./styles/base/global.css";
 
 import Routes from "./routes";
 
-import Header from "./components/Header";
-
 function App() {
 	return (
 		<Router>
-			<Header />
 			<Routes />
 		</Router>
 	);

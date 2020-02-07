@@ -1,18 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./style.scss";
 
-export default function SearchBar() {
-	const [param, setParam] = useState("");
-
-	const handleSearchParam = e => {
-		setParam(e.target.value);
-	};
-
-	const handleSubmit = e => {
-		e.preventDefault();
-	};
-
+export default function SearchBar({ param, handleSearchParam, handleSubmit }) {
 	return (
 		<form className="search" onSubmit={handleSubmit}>
 			<label className="screen-reader-only" htmlFor="scbar">
