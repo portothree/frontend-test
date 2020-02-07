@@ -1,3 +1,14 @@
+@mixin background-icon($path) {
+	content: "";
+	background: url($path);
+	background-size: 20px 35px;
+	background-repeat: no-repeat;
+	background-position: left;
+	display: inline-block;
+	width: 20px;
+	height: 35px;
+}
+
 // breakpoints
 
 // mobile ladscape
