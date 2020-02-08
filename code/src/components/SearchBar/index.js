@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./style.scss";
 
@@ -15,6 +16,13 @@ export default function SearchBar({ param, handleSearchParam, handleSubmit }) {
 				value={param}
 				onChange={handleSearchParam}
 			/>
+			<button className="search__submit-btn" aria-label="Search"></button>
 		</form>
 	);
 }
+
+SearchBar.propTypes = {
+	param: PropTypes.string,
+	handleSearchParam: PropTypes.func,
+	handleSubmit: PropTypes.func
+};

@@ -1,6 +1,9 @@
 .filmlist {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	list-style: none;
 	color: #fffffe;
+
+	padding: 0;
 }

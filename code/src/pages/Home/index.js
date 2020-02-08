@@ -1,46 +1,20 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import "./style.scss";
 
 import FilmList from "../../components/FilmList";
-import SearchBar from "../../components/SearchBar";
-import logo from "../../assets/images/diamond.png";
 
-export default function Home() {
-	const [param, setParam] = useState("");
-	const [films, setFilms] = useState([]);
-	const [errors, setErrors] = useState({});
-
-	const handleSearchParam = e => {
-		setParam(e.target.value);
-	};
-
-	const handleSubmit = async e => {
-		e.preventDefault();
-
-		const response = await fetch(
-			`http://www.omdbapi.com/?apikey=1fa629b7&s=${param}`
-		);
-
-		response
-			.json()
-			.then(res => setFilms(res.Search))
-			.catch(err => setErrors(err));
-	};
+export default function Home({ error, films }) {
+	if (error) return <h1>Cant find films</h1>;
 
 	return (
-		<>
-			<header className="header">
-				<img className="header__logo" src={logo} alt="Diamond" />
-				<SearchBar
-					param={param}
-					handleSearchParam={handleSearchParam}
-					handleSubmit={handleSubmit}
-				/>
-			</header>
-			<main>
-				<FilmList films={films} />
-			</main>
-		</>
+		<main>
+			<FilmList films={films} />
+		</main>
 	);
 }
+
+Home.propTypes = {
+	films: PropTypes.array
+};

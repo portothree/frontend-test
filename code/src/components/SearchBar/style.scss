@@ -2,6 +2,7 @@
 
 .search {
 	display: flex;
+	justify-content: space-between;
 	box-shadow: 2px 2px 5px #7a8c99;
 	border-radius: 4px;
 	background-color: #fff;
@@ -21,7 +22,20 @@
 	&__input {
 		border: none;
 		border-radius: 4px;
-		// 40px from search icon after margin
-		width: calc(100% - 40px);
+		width: calc(100% - 100px);
+		color: #353f4c;
+	}
+
+	&__submit-btn {
+		border: none;
+		background-color: inherit;
+		border-radius: 0 4px 4px 0;
+		cursor: pointer;
+
+		&::before {
+			@include background-icon("../../assets/images/next.svg");
+
+			margin: 0 10px;
+		}
 	}
 }

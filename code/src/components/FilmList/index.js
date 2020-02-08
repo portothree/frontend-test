@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./style.scss";
 
@@ -15,3 +16,7 @@ export default function FilmList({ films }) {
 		</section>
 	);
 }
+
+FilmList.propTypes = {
+	films: PropTypes.array
+};
