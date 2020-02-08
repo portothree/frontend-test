@@ -5,13 +5,13 @@ import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import FilmPage from "../pages/FilmPage";
 
-export default function Routes({ films }) {
+export default function Routes({ films, loading }) {
 	return (
 		<Switch>
 			<Route
 				exact
 				path="/"
-				render={props => <Home {...props} films={films} />}
+				render={props => <Home {...props} films={films} loading={loading} />}
 			/>
 			<Route path="/film/:imdbID" component={FilmPage} />
 		</Switch>
@@ -19,5 +19,6 @@ export default function Routes({ films }) {
 }
 
 Routes.propTypes = {
-	films: PropTypes.array
+	films: PropTypes.array,
+	loading: PropTypes.bool
 };

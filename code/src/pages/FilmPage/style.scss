@@ -15,9 +15,11 @@
 
 	&__poster {
 		width: 150px;
+		margin-top: 20px;
 
 		@include viewport-7 {
 			width: 300px;
+			margin: 0;
 		}
 	}
 
@@ -41,5 +43,17 @@
 
 	&__list {
 		list-style: none;
+	}
+}
+
+.link-back {
+	text-decoration: none;
+	color: #fffe;
+
+	&::before {
+		@include background-icon("../../assets/images/next.svg");
+		transform: rotate(180deg);
+		height: 10px;
+		margin-right: 5px;
 	}
 }

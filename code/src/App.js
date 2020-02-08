@@ -11,6 +11,7 @@ import Header from "./components/Header";
 
 function App() {
 	const [param, setParam] = useState("");
+	const [loading, setLoading] = useState(false);
 	const [films, setFilms] = useState([]);
 	const [errors, setErrors] = useState({});
 
@@ -21,6 +22,7 @@ function App() {
 	const handleSubmit = async e => {
 		e.preventDefault();
 		history.push("/");
+		setLoading(true);
 
 		const response = await fetch(
 			`http://www.omdbapi.com/?apikey=1fa629b7&s=${param}`
@@ -32,6 +34,8 @@ function App() {
 				if (res.Search) setFilms(res.Search);
 			})
 			.catch(err => setErrors(err));
+
+		setLoading(false);
 	};
 
 	return (
@@ -41,7 +45,7 @@ function App() {
 				handleSearchParam={handleSearchParam}
 				handleSubmit={handleSubmit}
 			/>
-			<Routes films={films} />
+			<Routes films={films} loading={loading} />
 		</Router>
 	);
 }

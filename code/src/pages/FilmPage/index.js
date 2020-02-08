@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import "./style.scss";
+
+import LikeBtn from "../../components/LikeBtn";
 
 export default function FilmPage({ match }) {
 	const { imdbID } = match.params;
 
 	const [film, setFilm] = useState({});
 	const [errors, setErrors] = useState({});
+	const [liked, setLiked] = useState(false);
 
 	useEffect(() => {
 		async function fetchData() {
@@ -31,49 +35,59 @@ export default function FilmPage({ match }) {
 	const genres = convertStringToArr(film.Genre);
 	const directors = convertStringToArr(film.Director);
 
+	const handleLikeBtn = () => {
+		setLiked(!liked);
+	};
+
 	return (
-		<main className="filmpage">
-			<img
-				className="filmpage__poster"
-				loading="lazy"
-				src={film.Poster}
-				alt={`Poster of ${film.Title} from ${film.Year}`}
-			/>
-			<div className="filmpage__info">
-				<h1 data-testid="filmt">{film.Title}</h1>
-				<h2>Plot</h2>
+		<main>
+			<Link className="link-back" to="/">
+				Back page
+			</Link>
+			<section className="filmpage">
+				<img
+					className="filmpage__poster"
+					loading="lazy"
+					src={film.Poster}
+					alt={`Poster of ${film.Title} from ${film.Year}`}
+				/>
+				<LikeBtn liked={liked} handleLikeBtn={handleLikeBtn} />
+				<div className="filmpage__info">
+					<h1 data-testid="filmt">{film.Title}</h1>
+					<h2>Plot</h2>
 
-				<p className="filmpage__plot">{film.Plot}</p>
+					<p className="filmpage__plot">{film.Plot}</p>
 
-				<div className="filmpage__details">
-					<div className="filmpage__detail">
-						<h3>Cast</h3>
-						<ul className="filmpage__list">
-							{actors.map((actor, index) => (
-								<li key={index}>{actor}</li>
-							))}
-						</ul>
-					</div>
+					<div className="filmpage__details">
+						<div className="filmpage__detail">
+							<h3>Cast</h3>
+							<ul className="filmpage__list">
+								{actors.map((actor, index) => (
+									<li key={index}>{actor}</li>
+								))}
+							</ul>
+						</div>
 
-					<div className="filmpage__detail">
-						<h3>Genre</h3>
-						<ul className="filmpage__list">
-							{genres.map((genre, index) => (
-								<li key={index}>{genre}</li>
-							))}
-						</ul>
-					</div>
+						<div className="filmpage__detail">
+							<h3>Genre</h3>
+							<ul className="filmpage__list">
+								{genres.map((genre, index) => (
+									<li key={index}>{genre}</li>
+								))}
+							</ul>
+						</div>
 
-					<div className="filmpage__detail">
-						<h3>Directors</h3>
-						<ul className="filmpage__list">
-							{directors.map((director, index) => (
-								<li key={index}>{director}</li>
-							))}
-						</ul>
+						<div className="filmpage__detail">
+							<h3>Directors</h3>
+							<ul className="filmpage__list">
+								{directors.map((director, index) => (
+									<li key={index}>{director}</li>
+								))}
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</main>
 	);
 }
