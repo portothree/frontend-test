@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { MemoryRouter } from "react-router-dom";
 import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
@@ -19,11 +20,20 @@ afterEach(cleanup);
 it("renders without crashing", () => {
 	const div = document.createElement("div");
 
-	ReactDOM.render(<FilmCard filmInfo={film} />, div);
+	ReactDOM.render(
+		<MemoryRouter>
+			<FilmCard film={film} />
+		</MemoryRouter>,
+		div
+	);
 });
 
 it("renders card correctly", () => {
-	const { getByTestId } = render(<FilmCard filmInfo={film} />);
+	const { getByTestId } = render(
+		<MemoryRouter>
+			<FilmCard film={film} />
+		</MemoryRouter>
+	);
 
 	expect(getByTestId("card")).toHaveTextContent("The Avengers");
 });

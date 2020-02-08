@@ -1,0 +1,40 @@
+@import "../../styles/abstracts/mixins";
+
+.filmpage {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	color: #fffffe;
+
+	@include viewport-7 {
+		flex-direction: row-reverse;
+		align-items: flex-start;
+	}
+
+	&__poster {
+		width: 150px;
+
+		@include viewport-7 {
+			width: initial;
+		}
+	}
+
+	&__info {
+		width: 70%;
+		margin-right: 30px;
+	}
+
+	&__details {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__detail {
+		margin-right: 20px;
+	}
+
+	&__list {
+		list-style: none;
+	}
+}
