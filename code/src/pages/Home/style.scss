@@ -1,3 +1,16 @@
 @import "../../styles/abstracts/mixins";
 
+.home {
+	&__initial {
+		color: #fffffe;
+		font-size: 18px;
+		font-weight: normal;
+		text-align: center;
 
+		&::before {
+			@include background-icon("../../assets/images/video-camera.svg");
+			height: 20px;
+			margin-right: 5px;
+		}
+	}
+}

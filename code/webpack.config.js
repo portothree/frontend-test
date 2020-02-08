@@ -19,7 +19,8 @@ module.exports = {
 	entry: ["regenerator-runtime/runtime", `${paths.client}/index.js`],
 	output: {
 		path: paths.build,
-		filename: "bundle.js"
+		filename: "bundle.js",
+		publicPath: "/"
 	},
 
 	plugins: [

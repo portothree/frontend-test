@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Router } from "react-router";
 
 import "./styles/base/global.css";
 
 import Routes from "./routes";
+
+import history from "./history";
 
 import Header from "./components/Header";
 
@@ -18,6 +20,7 @@ function App() {
 
 	const handleSubmit = async e => {
 		e.preventDefault();
+		history.push("/");
 
 		const response = await fetch(
 			`http://www.omdbapi.com/?apikey=1fa629b7&s=${param}`
@@ -32,7 +35,7 @@ function App() {
 	};
 
 	return (
-		<Router>
+		<Router history={history}>
 			<Header
 				param={param}
 				handleSearchParam={handleSearchParam}

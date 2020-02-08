@@ -43,7 +43,7 @@ export default function FilmPage({ match }) {
 				<h1 data-testid="filmt">{film.Title}</h1>
 				<h2>Plot</h2>
 
-				<p>{film.Plot}</p>
+				<p className="filmpage__plot">{film.Plot}</p>
 
 				<div className="filmpage__details">
 					<div className="filmpage__detail">
