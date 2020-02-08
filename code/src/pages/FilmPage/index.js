@@ -41,9 +41,12 @@ export default function FilmPage({ match }) {
 
 	return (
 		<main>
-			<Link className="link-back" to="/">
-				Back page
-			</Link>
+			<div className="nav-film">
+				<Link className="link-back" to="/">
+					Back page
+				</Link>
+				<LikeBtn liked={liked} handleLikeBtn={handleLikeBtn} />
+			</div>
 			<section className="filmpage">
 				<img
 					className="filmpage__poster"
@@ -51,7 +54,7 @@ export default function FilmPage({ match }) {
 					src={film.Poster}
 					alt={`Poster of ${film.Title} from ${film.Year}`}
 				/>
-				<LikeBtn liked={liked} handleLikeBtn={handleLikeBtn} />
+
 				<div className="filmpage__info">
 					<h1 data-testid="filmt">{film.Title}</h1>
 					<h2>Plot</h2>

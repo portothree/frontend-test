@@ -4,9 +4,4 @@
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	margin-top: 20px;
-
-	@include viewport-7 {
-		margin: 0;
-	}
 }

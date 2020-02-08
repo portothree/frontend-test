@@ -26,6 +26,11 @@
 	&__info {
 		max-width: 400px;
 		margin-right: 30px;
+		text-align: center;
+
+		@include viewport-4 {
+			text-align: initial;
+		}
 	}
 
 	&__plot {
@@ -35,6 +40,7 @@
 	&__details {
 		display: flex;
 		flex-wrap: wrap;
+		text-align: initial;
 	}
 
 	&__detail {
@@ -44,6 +50,12 @@
 	&__list {
 		list-style: none;
 	}
+}
+
+.nav-film {
+	display: flex;
+	justify-content: space-between;
+	max-width: 450px;
 }
 
 .link-back {
